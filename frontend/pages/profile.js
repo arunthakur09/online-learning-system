@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from 'react';
 import AuthContext from '../contexts/AuthContext';
 import axios from 'axios';
-import { server } from '../backend/config/config'; // Import the server configuration
+import { server } from '../../backend/config/config'; // Import the server configuration
 
 export default function Profile() {
   const [username, setUsername] = useState('');

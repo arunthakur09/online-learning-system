@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { server } from '../backend/config/config';
+import { server } from '../../backend/config/config';
 
 export default function Courses() {
   const [courses, setCourses] = useState([]);

@@ -2,7 +2,7 @@ import { useState, useContext, useEffect } from 'react';
 import AuthContext from '../contexts/AuthContext';
 import axios from 'axios';
 import { useRouter } from 'next/router';
-import { server } from '../backend/config/config';
+import { server } from '../../backend/config/config';
 
 export default function CreateCourse() {
   const [title, setTitle] = useState('');
