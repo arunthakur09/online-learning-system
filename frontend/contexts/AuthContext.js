@@ -28,7 +28,7 @@ export const AuthProvider = ({ children }) => {
       setUser(user);
       router.push('/');
     } catch (error) {
-      console.error(error);
+      console.error('Registration error:', error);
       alert('Registration failed. Please try again.');
     }
   };
@@ -41,7 +41,7 @@ export const AuthProvider = ({ children }) => {
       setUser(user);
       router.push('/');
     } catch (error) {
-      console.error(error);
+      console.error('Login error:', error);
       alert('Invalid credentials. Please try again.');
     }
   };

@@ -5,9 +5,9 @@ export default function Success() {
   const { session_id } = router.query;
 
   return (
-    <div className="container mx-auto">
-      <h1 className="text-4xl font-bold">Payment Successful</h1>
-      <p>Your payment was successful. Your session ID is {session_id}</p>
+    <div className="container mx-auto p-4">
+      <h1 className="text-4xl font-bold text-center mb-8">Payment Successful</h1>
+      <p className="text-center">Your payment was successful. Your session ID is <strong>{session_id}</strong></p>
     </div>
   );
 }

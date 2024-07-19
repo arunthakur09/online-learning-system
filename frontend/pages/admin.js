@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from 'react';
 import AuthContext from '../contexts/AuthContext';
 import axios from 'axios';
+import { server } from '../../backend/config/config';
 
 export default function Admin() {
   const [users, setUsers] = useState([]);
@@ -9,17 +10,19 @@ export default function Admin() {
 
   useEffect(() => {
     if (user && user.role === 'admin') {
-      axios.get('/api/admin/users', {
+      axios.get(`${server}/api/admin/users`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`
         }
-      }).then(response => setUsers(response.data));
+      }).then(response => setUsers(response.data))
+        .catch(error => console.error('Error fetching users:', error));
 
-      axios.get('/api/admin/courses', {
+      axios.get(`${server}/api/admin/courses`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`
         }
-      }).then(response => setCourses(response.data));
+      }).then(response => setCourses(response.data))
+        .catch(error => console.error('Error fetching courses:', error));
     }
   }, [user]);
 

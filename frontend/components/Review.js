@@ -7,13 +7,17 @@ export default function Review({ courseId }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await axios.post(`/api/reviews/${courseId}`, { rating, comment }, {
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem('token')}`
-      }
-    });
-    setRating(0);
-    setComment('');
+    try {
+      await axios.post(`/api/reviews/${courseId}/reviews`, { rating, comment }, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`
+        }
+      });
+      setRating(0);
+      setComment('');
+    } catch (error) {
+      console.error('Error submitting review:', error);
+    }
   };
 
   return (

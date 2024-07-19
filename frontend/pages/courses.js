@@ -8,7 +8,7 @@ export default function Courses() {
   useEffect(() => {
     axios.get(`${server}/api/courses`)
       .then(response => setCourses(response.data))
-      .catch(error => console.error(error));
+      .catch(error => console.error('Error fetching courses:', error));
   }, []);
 
   return (
@@ -17,8 +17,8 @@ export default function Courses() {
       <ul>
         {courses.map(course => (
           <li key={course._id} className="p-4 border-b">
-            <h2 className="text-2xl">{course.title}</h2>
-            <p>{course.description}</p>
+            <h2 className="text-2xl font-bold">{course.title}</h2>
+            <p className="text-gray-700">{course.description}</p>
             <div dangerouslySetInnerHTML={{ __html: course.content }}></div>
             {course.videoUrl && (
               <div className="my-4">

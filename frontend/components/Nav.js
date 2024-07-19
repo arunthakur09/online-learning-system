@@ -9,37 +9,37 @@ export default function Nav() {
     <nav className="bg-gray-800 p-4">
       <div className="container mx-auto flex justify-between">
         <Link href="/">
-          <span className="text-white text-lg font-bold cursor-pointer">Online Learning System</span>
+          <span className="text-white text-lg font-bold">Online Learning System</span>
         </Link>
         <div>
           <Link href="/">
-            <span className="text-white mr-4 cursor-pointer">Home</span>
+            <span className="text-white mr-4">Home</span>
           </Link>
           <Link href="/about">
-            <span className="text-white mr-4 cursor-pointer">About</span>
+            <span className="text-white mr-4">About</span>
           </Link>
           <Link href="/courses">
-            <span className="text-white mr-4 cursor-pointer">Courses</span>
+            <span className="text-white mr-4">Courses</span>
           </Link>
           <Link href="/contact">
-            <span className="text-white mr-4 cursor-pointer">Contact</span>
+            <span className="text-white mr-4">Contact</span>
           </Link>
           {!user && (
             <>
               <Link href="/login">
-                <span className="text-white mr-4 cursor-pointer">Login</span>
+                <span className="text-white mr-4">Login</span>
               </Link>
               <Link href="/register">
-                <span className="text-white mr-4 cursor-pointer">Register</span>
+                <span className="text-white mr-4">Register</span>
               </Link>
             </>
           )}
           {user && (
             <>
               <Link href="/createcourse">
-                <span className="text-white mr-4 cursor-pointer">Create Course</span>
+                <span className="text-white mr-4">Create Course</span>
               </Link>
-              <button onClick={logout} className="text-white cursor-pointer">Logout</button>
+              <button onClick={logout} className="text-white">Logout</button>
             </>
           )}
         </div>
