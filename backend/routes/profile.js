@@ -3,6 +3,7 @@ const User = require('../models/User');
 const router = express.Router();
 const authMiddleware = require('../middleware/authMiddleware');
 
+// Get current user's profile
 router.get('/me', authMiddleware, async (req, res) => {
   try {
     const user = await User.findById(req.user.id).populate('courses');
@@ -12,6 +13,7 @@ router.get('/me', authMiddleware, async (req, res) => {
   }
 });
 
+// Update current user's profile
 router.put('/me', authMiddleware, async (req, res) => {
   const { username, email } = req.body;
   try {

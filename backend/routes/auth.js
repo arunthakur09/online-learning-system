@@ -70,7 +70,7 @@ router.post('/register', async (req, res) => {
     const hashedPassword = await argon2.hash(password);
     const user = new User({ username, email, password: hashedPassword });
     await user.save();
-    const token = jwt.sign({ id: user._id }, config.jwtSecret, { expiresIn: '1h' });  // Use config.jwtSecret
+    const token = jwt.sign({ id: user._id }, config.jwtSecret, { expiresIn: '1h' });
     res.status(201).json({ token, user });
   } catch (error) {
     res.status(400).json({ message: error.message });
@@ -125,7 +125,7 @@ router.post('/login', async (req, res) => {
       console.log('Password does not match');
       return res.status(401).json({ message: 'Invalid credentials' });
     }
-    const token = jwt.sign({ id: user._id }, config.jwtSecret, { expiresIn: '1h' });  // Use config.jwtSecret
+    const token = jwt.sign({ id: user._id }, config.jwtSecret, { expiresIn: '1h' });
     res.json({ token, user });
   } catch (error) {
     console.log(error);
@@ -157,7 +157,7 @@ router.get('/me', async (req, res) => {
     return res.status(401).json({ message: 'No token, authorization denied' });
   }
   try {
-    const decoded = jwt.verify(token, config.jwtSecret);  // Use config.jwtSecret
+    const decoded = jwt.verify(token, config.jwtSecret);
     const user = await User.findById(decoded.id);
     res.json(user);
   } catch (error) {
