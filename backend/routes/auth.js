@@ -3,7 +3,7 @@ const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 const argon2 = require('argon2');
 const router = express.Router();
-const config = require('../config/config');  // Import config
+const config = require('../config/config');
 
 /**
  * @swagger
