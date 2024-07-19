@@ -11,7 +11,7 @@ const options = {
     },
     servers: [
       {
-        url: 'http://localhost:5000', // Replace with your server URL
+        url: process.env.SERVER_URL || 'http://localhost:5000',
       },
     ],
   },

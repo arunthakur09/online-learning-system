@@ -1,5 +1,5 @@
 const request = require('supertest');
-const app = require('../server'); // Assuming your Express app is exported from server.js
+const app = require('../server');
 
 describe('Auth Routes', () => {
   it('should register a new user', async () => {
@@ -11,7 +11,8 @@ describe('Auth Routes', () => {
         password: 'password',
       });
     expect(res.statusCode).toEqual(201);
-    expect(res.body).toHaveProperty('username');
+    expect(res.body).toHaveProperty('user');
+    expect(res.body.user).toHaveProperty('username', 'testuser');
   });
 
   it('should login an existing user', async () => {
