@@ -44,7 +44,7 @@ exports.getCurrentUser = async (req, res) => {
   }
   try {
     const decoded = jwt.verify(token, config.jwtSecret);
-    const user = await User.findById(decoded.id);
+    const user = await User.findById(decoded.id).select('-password');
     res.json(user);
   } catch (error) {
     res.status(401).json({ message: 'Token is not valid' });
